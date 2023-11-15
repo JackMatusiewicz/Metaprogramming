@@ -22,4 +22,4 @@ ActualType foo{{1}, {2.5}, {'a', 'b'}, {true, true, false, true}};
 
 auto end = JML::nil();
 std::shared_ptr<JML::HList<int, void>> a = JML::cons(5, end);
-std::shared_ptr<JML::HList<const char* , int, void>> b = JML::cons("hello!", a);
+std::shared_ptr<JML::HList<const char*, int, void>> b = JML::cons("hello!", a);
