@@ -9,4 +9,5 @@ add_library(JML SHARED
         src/Aggregate.h
         src/HList.h
         src/ToType.h
-        src/empty.cpp)
+        src/empty.cpp
+        src/Concat.h)

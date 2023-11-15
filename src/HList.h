@@ -1,7 +1,3 @@
-//
-// Created by jack on 15/11/23.
-//
-
 #ifndef JML_HLIST_H
 #define JML_HLIST_H
 

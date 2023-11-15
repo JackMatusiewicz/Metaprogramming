@@ -1,7 +1,3 @@
-//
-// Created by jack on 15/11/23.
-//
-
 #ifndef JML_AGGREGATE_H
 #define JML_AGGREGATE_H
 
