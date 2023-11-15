@@ -16,6 +16,7 @@ namespace JML {
          */
         static constexpr std::size_t Count = sizeof...(Ts);
     };
+
 }
 
 #endif //JML_TYPELIST_H

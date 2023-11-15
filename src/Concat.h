@@ -4,6 +4,7 @@
 #include "TypeList.h"
 
 namespace JML {
+
     template<typename, typename>
     struct Concat;
 

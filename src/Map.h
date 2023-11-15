@@ -20,6 +20,7 @@ namespace JML {
     struct Map<F, TypeList<Ts...>> {
         using Result = TypeList<F<Ts>...>;
     };
+
 }
 
 #endif //JML_MAP_H

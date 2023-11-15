@@ -4,6 +4,7 @@
 #include "TypeList.h"
 
 namespace JML {
+
     template<template<typename> class, typename...>
     struct Aggregate;
 
@@ -19,6 +20,7 @@ namespace JML {
     struct Aggregate<F, TypeList<Ts...>> {
         using Result = TypeList<F<Ts...>>;
     };
+
 }
 
 #endif //JML_AGGREGATE_H

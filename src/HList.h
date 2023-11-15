@@ -4,6 +4,7 @@
 #include <memory>
 
 namespace JML {
+
     template<typename, typename...>
     struct HList;
 
@@ -23,7 +24,6 @@ namespace JML {
 
         explicit HList(T head, std::unique_ptr<HList<Ts...>> tail) : _head{head}, _tail{tail} {}
     };
-
 
 }
 

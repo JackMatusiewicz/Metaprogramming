@@ -19,6 +19,7 @@ namespace JML {
         // The type being pulled out of the single element TypeList
         using Result = T;
     };
+
 }
 
 #endif //JML_TOTYPE_H
