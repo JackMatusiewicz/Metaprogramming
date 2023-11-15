@@ -16,4 +16,5 @@ using TupleList = JML::Aggregate<std::tuple, ListOfVectors>::Result;
 using ActualType = JML::ToType<TupleList>::Result;
 
 // Proof that it works.
-ActualType foo{1, 1.5, 'a', false};
+// ActualType is std::tuple<std::vector<int>, std::vector<float>, std::vector<char>, std::vector<bool>>
+ActualType foo{{1}, {2.5}, {'a', 'b'}, {true, true, false, true}};
