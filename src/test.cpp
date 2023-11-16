@@ -20,6 +20,6 @@ using ActualType = JML::ToType<TupleList>::Result;
 // ActualType is std::tuple<std::vector<int>, std::vector<float>, std::vector<char>, std::vector<bool>>
 ActualType foo{{1}, {2.5}, {'a', 'b'}, {true, true, false, true}};
 
-auto end = JML::nil();
-std::shared_ptr<JML::HList<int, void>> a = JML::cons(5, end);
-std::shared_ptr<JML::HList<const char*, int, void>> b = JML::cons("hello!", a);
+auto end = JML::singleton(5);
+auto a = JML::cons(5, end);
+auto b = JML::cons("hello!", a);
