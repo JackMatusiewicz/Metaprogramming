@@ -8,10 +8,6 @@ namespace JML {
     template<typename, typename...>
     struct HList;
 
-    // The HList element that represents the end of the list, nil.
-    template<>
-    struct HList<void> {};
-
     // The HList representing cons, with the head and tail.
     template<typename T, typename... Ts>
     struct HList {
@@ -23,6 +19,16 @@ namespace JML {
         std::shared_ptr<HList<Ts...>>& tail() const noexcept { return _tail; }
 
         explicit HList(T&& head, std::shared_ptr<HList<Ts...>>&& tail) : _head{head}, _tail{tail} {}
+    };
+
+    // The HList element that represents the end of the list, nil.
+    template<typename T>
+    struct HList<T> {
+    private:
+        T _head;
+    public:
+        explicit HList(T&& head) : _head{head} {}
+        T& head() const noexcept { return _head; }
     };
 
     std::shared_ptr<HList<void>> nil() noexcept {
