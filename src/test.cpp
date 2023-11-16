@@ -7,6 +7,9 @@
 #include "Aggregate.h"
 #include "ToType.h"
 #include "HList.h"
+#include "Count.h"
+#include "Repeat.h"
+#include "Exists.h"
 
 using FirstList = JML::TypeList<int, float>;
 using SecondList = JML::TypeList<char, bool>;
@@ -19,6 +22,14 @@ using ActualType = JML::ToType<TupleList>::Result;
 // Proof that it works.
 // ActualType is std::tuple<std::vector<int>, std::vector<float>, std::vector<char>, std::vector<bool>>
 ActualType foo{{1}, {2.5}, {'a', 'b'}, {true, true, false, true}};
+
+using Quad = JML::Repeat<4u, int>;
+using TupleQuad = JML::ToType<JML::Aggregate<std::tuple, Quad>::Result>::Result;
+
+using DoesExist = JML::Exists<int, Quad>::type;
+using DoesNotExist = JML::Exists<float, Quad>::type;
+
+TupleQuad x{1,2,3,4};
 
 auto end = JML::singleton(5);
 auto a = JML::cons(5, end);

@@ -10,4 +10,7 @@ add_library(JML SHARED
         src/HList.h
         src/ToType.h
         src/test.cpp
-        src/Concat.h)
+        src/Concat.h
+        src/Exists.h
+        src/Count.h
+        src/Repeat.h)
