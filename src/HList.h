@@ -21,7 +21,7 @@ namespace JML {
         explicit HList(T&& head, std::shared_ptr<HList<Ts...>>&& tail) : _head{head}, _tail{tail} {}
     };
 
-    // The HList element that represents the end of the list, nil.
+    // The HList element that represents the end of the list, holding the final value of the HList.
     template<typename T>
     struct HList<T> {
     private:
@@ -31,8 +31,9 @@ namespace JML {
         T& head() const noexcept { return _head; }
     };
 
-    std::shared_ptr<HList<void>> nil() noexcept {
-        return std::make_shared<HList<void>>(HList<void>{});
+    template<typename T>
+    std::shared_ptr<HList<T>> singleton(T&& head) noexcept {
+        return std::make_shared<HList<T>>(HList<T>{std::forward<T>(head)});
     }
 
     template<typename T, typename... Ts>
