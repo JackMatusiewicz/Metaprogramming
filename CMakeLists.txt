@@ -13,4 +13,5 @@ add_library(JML SHARED
         src/Concat.h
         src/Exists.h
         src/Count.h
-        src/Repeat.h)
+        src/Repeat.h
+        src/TypeMatch.h)

@@ -4,6 +4,7 @@
 #include <type_traits>
 
 #include "TypeList.h"
+#include "TypeMatch.h"
 
 namespace JML {
 
@@ -15,7 +16,7 @@ namespace JML {
 
     template<typename T, typename H, typename...Ts>
     struct Count<T, TypeList<H, Ts...>>
-            : std::integral_constant<std::size_t, (std::is_same<T,H>{} ? 1 : 0) + Count<T, TypeList<Ts...>>{}> {};
+            : std::integral_constant<std::size_t, (TypeMatch<T,H>{} ? 1 : 0) + Count<T, TypeList<Ts...>>{}> {};
 
 }
 
