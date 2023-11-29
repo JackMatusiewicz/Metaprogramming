@@ -10,6 +10,7 @@
 #include "Count.h"
 #include "Repeat.h"
 #include "Exists.h"
+#include "Unique.h"
 
 using FirstList = JML::TypeList<int, float>;
 using SecondList = JML::TypeList<char, bool>;
@@ -34,3 +35,13 @@ TupleQuad x{1,2,3,4};
 auto end = JML::singleton(5);
 auto a = JML::cons(5, end);
 auto b = JML::cons("hello!", a);
+
+auto un = JML::Unique<int, float, bool, int>::value;
+
+template<typename T, typename...Ts> requires JML::UniqueSet<T, Ts...>
+int some_function() {
+    return sizeof...(Ts);
+}
+
+auto vv = some_function<int, float, bool>();
+
