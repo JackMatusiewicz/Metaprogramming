@@ -1,7 +1,3 @@
-//
-// Created by jackm on 11/29/2023.
-//
-
 #ifndef JML_UNIQUE_H
 #define JML_UNIQUE_H
 
