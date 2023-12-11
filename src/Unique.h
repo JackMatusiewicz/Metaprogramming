@@ -18,7 +18,9 @@ namespace JML {
             {};
 
     template<typename... Ts>
-    using Unique = UniqueInner<JML::TypeList<Ts...>>;
+    struct Unique : UniqueInner<JML::TypeList<Ts...>> {
+        using SetTypes = TypeList<Ts...>;
+    };
 
     template<typename... Ts>
     concept unique_elements = Unique<Ts...>::value;
