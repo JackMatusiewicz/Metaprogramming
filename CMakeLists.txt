@@ -14,4 +14,4 @@ add_library(JML SHARED
         src/Exists.h
         src/Count.h
         src/Repeat.h
-        src/TypeMatch.h src/Unique.h)
+        src/TypeMatch.h src/Unique.h src/BitSet.h src/Contains.h)

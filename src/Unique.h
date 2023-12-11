@@ -1,7 +1,3 @@
-//
-// Created by jackm on 11/29/2023.
-//
-
 #ifndef JML_UNIQUE_H
 #define JML_UNIQUE_H
 
@@ -11,17 +7,21 @@
 #include "Count.h"
 
 namespace JML {
-    template<typename, typename...>
-    struct Unique;
+
+    template<typename TTypeList>
+    struct UniqueInner : std::integral_constant<bool, true> {};
 
     template<typename T, typename... Ts>
-    struct Unique : std::integral_constant<bool, true> {};
+    struct UniqueInner<JML::TypeList<T, Ts...>>
+            : std::integral_constant<bool, Count<T, JML::TypeList<Ts...>>{} == 0
+                && UniqueInner<JML::TypeList<Ts...>>{}>
+            {};
 
-    template<typename T, typename U, typename... Ts>
-    struct Unique<T, U, Ts...> : std::integral_constant<bool, Count<T, TypeList<U, Ts...>>{} == 0 && Unique<T, Ts...>{}> {};
+    template<typename... Ts>
+    using Unique = UniqueInner<JML::TypeList<Ts...>>;
 
-    template<typename T, typename... Ts>
-    concept UniqueSet = Unique<T, Ts...>{};
+    template<typename... Ts>
+    concept unique_elements = Unique<Ts...>::value;
 }
 
 #endif //JML_UNIQUE_H

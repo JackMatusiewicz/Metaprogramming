@@ -11,6 +11,8 @@
 #include "Repeat.h"
 #include "Exists.h"
 #include "Unique.h"
+#include "BitSet.h"
+#include "Contains.h"
 
 using FirstList = JML::TypeList<int, float>;
 using SecondList = JML::TypeList<char, bool>;
@@ -36,12 +38,17 @@ auto end = JML::singleton(5);
 auto a = JML::cons(5, end);
 auto b = JML::cons("hello!", a);
 
-auto un = JML::Unique<int, float, bool, int>::value;
+auto un = JML::Unique<int, float, bool, int>{};
 
-template<typename T, typename...Ts> requires JML::UniqueSet<T, Ts...>
+template<typename... Ts>
+requires JML::unique_elements<Ts...>
 int some_function() {
     return sizeof...(Ts);
 }
 
 auto vv = some_function<int, float, bool>();
+
+auto bs = JML::BitSet<int, float, char, std::string>::set;
+
+auto containsAllValues = JML::ContainsAll<JML::TypeList<int, float, char>, JML::TypeList<int, float, char, bool>>::value;
 
