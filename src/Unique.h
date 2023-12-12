@@ -8,7 +8,7 @@
 
 namespace JML {
 
-    template<typename TTypeList>
+    template<typename BaseCase>
     struct UniqueInner : std::integral_constant<bool, true> {};
 
     template<typename T, typename... Ts>
