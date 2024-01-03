@@ -19,5 +19,5 @@ add_library(JML INTERFACE
         src/Contains.hpp
         src/Subset.hpp)
 
-add_executable(executable src/main.cpp)
+add_executable(executable src/main.cpp src/Index.hpp)
 target_link_libraries(executable JML)
