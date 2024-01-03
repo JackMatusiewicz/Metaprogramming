@@ -13,9 +13,8 @@ namespace JML {
 
     template<typename T, typename... Ts>
     struct UniqueInner<JML::TypeList<T, Ts...>>
-            : std::integral_constant<bool, Count<T, JML::TypeList<Ts...>>{} == 0
-                && UniqueInner<JML::TypeList<Ts...>>{}>
-            {};
+        : std::integral_constant<bool, Count<T, JML::TypeList<Ts...>>{} == 0 && UniqueInner<JML::TypeList<Ts...>>{}>
+    {};
 
     template<typename... Ts>
     struct Unique : UniqueInner<JML::TypeList<Ts...>> {
@@ -24,6 +23,8 @@ namespace JML {
 
     template<typename... Ts>
     concept unique_elements = Unique<Ts...>::value;
+
+    static_assert(Unique<int, float, bool>::value == true);
 }
 
 #endif //JML_UNIQUE_H

@@ -21,6 +21,9 @@ namespace JML {
         using Result = TypeList<F<Ts...>>;
     };
 
+    static_assert(
+        std::is_same_v<Aggregate<std::tuple, TypeList<int, float>>::Result, TypeList<std::tuple<int, float>>>,
+        "these are the same");
 }
 
 #endif //JML_AGGREGATE_H

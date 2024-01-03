@@ -20,6 +20,8 @@ namespace JML {
 
     template<unsigned int i, typename T>
     using Repeat = RepeatHelper<i, T, TypeList<>>::Result;
+
+    static_assert(std::is_same_v<Repeat<4, int>, TypeList<int, int, int, int>>);
 }
 
 #endif //JML_REPEAT_H

@@ -21,6 +21,10 @@ namespace JML {
         using Result = TypeList<As..., Bs...>;
     };
 
+    static_assert(
+        std::is_same_v<Concat<TypeList<int, float>, TypeList<char, bool>>::Result, TypeList<int, float, char, bool>>,
+        "Concatenating <int, float> to <char, bool> should equal <int, float, char, bool>");
+
 }
 
 #endif //JML_CONCAT_H

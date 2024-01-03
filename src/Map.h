@@ -21,6 +21,9 @@ namespace JML {
         using Result = TypeList<F<Ts>...>;
     };
 
+    static_assert(
+        std::is_same_v<Map<std::vector, TypeList<int, float>>::Result, TypeList<std::vector<int>, std::vector<float>>>,
+        "Mapping std::vector over <int, float> should result in <vector<int>, vector<float>>");
 }
 
 #endif //JML_MAP_H

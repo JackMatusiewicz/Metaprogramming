@@ -20,6 +20,9 @@ namespace JML {
         using Result = T;
     };
 
+    static_assert(
+        std::is_same_v<ToType<TypeList<std::tuple<int, float>>>::Result, std::tuple<int, float>>,
+        "Converting a TypeList<tuple<int, float>> into the raw type should get tuple<int, float>");
 }
 
 #endif //JML_TOTYPE_H

@@ -19,6 +19,14 @@ namespace JML {
 
     template<typename Fst, typename Snd>
     using ContainsAll = ContainsInner<Fst, Snd>;
+
+    static_assert(
+        ContainsAll<JML::TypeList<int, float, char>, JML::TypeList<int, float, char, bool>>::value == true,
+        "All elements of the first list are contained in the second");
+
+    static_assert(
+        ContainsAll<JML::TypeList<int, float, char>, JML::TypeList<int, float, char, bool>>::value == true,
+        "All elements of the first list are contained in the second");
 }
 
 #endif //JML_CONTAINS_H
