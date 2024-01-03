@@ -1,5 +1,5 @@
-#ifndef JML_TYPEMATCH_H
-#define JML_TYPEMATCH_H
+#ifndef JML_TYPEMATCH_HPP
+#define JML_TYPEMATCH_HPP
 
 #include <type_traits>
 
@@ -14,4 +14,4 @@ namespace JML {
     struct TypeMatch<T,T> : std::integral_constant<bool, true> {};
 }
 
-#endif //JML_TYPEMATCH_H
+#endif //JML_TYPEMATCH_HPP

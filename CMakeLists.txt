@@ -4,13 +4,20 @@ project(JML CXX)
 set(CMAKE_CXX_STANDARD 20)
 
 add_library(JML INTERFACE
-        src/TypeList.h
-        src/Map.h
-        src/Aggregate.h
-        src/HList.h
-        src/ToType.h
-        src/Concat.h
-        src/Exists.h
-        src/Count.h
-        src/Repeat.h
-        src/TypeMatch.h src/Unique.h src/BitSet.h src/Contains.h src/Subset.h)
+        src/TypeList.hpp
+        src/Map.hpp
+        src/Aggregate.hpp
+        src/HList.hpp
+        src/ToType.hpp
+        src/Concat.hpp
+        src/Exists.hpp
+        src/Count.hpp
+        src/Repeat.hpp
+        src/TypeMatch.hpp
+        src/Unique.hpp
+        src/BitSet.hpp
+        src/Contains.hpp
+        src/Subset.hpp)
+
+add_executable(executable src/main.cpp)
+target_link_libraries(executable JML)

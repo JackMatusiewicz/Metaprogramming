@@ -1,5 +1,5 @@
-#ifndef JML_HLIST_H
-#define JML_HLIST_H
+#ifndef JML_HLIST_HPP
+#define JML_HLIST_HPP
 
 #include <memory>
 
@@ -43,4 +43,4 @@ namespace JML {
 
 }
 
-#endif //JML_HLIST_H
+#endif //JML_HLIST_HPP

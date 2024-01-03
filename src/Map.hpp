@@ -1,7 +1,7 @@
-#ifndef JML_MAP_H
-#define JML_MAP_H
+#ifndef JML_MAP_HPP
+#define JML_MAP_HPP
 
-#include "TypeList.h"
+#include "TypeList.hpp"
 
 namespace JML {
 
@@ -26,4 +26,4 @@ namespace JML {
         "Mapping std::vector over <int, float> should result in <vector<int>, vector<float>>");
 }
 
-#endif //JML_MAP_H
+#endif //JML_MAP_HPP

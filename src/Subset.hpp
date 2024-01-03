@@ -1,9 +1,9 @@
-#ifndef JML_SUBSET_H
-#define JML_SUBSET_H
+#ifndef JML_SUBSET_HPP
+#define JML_SUBSET_HPP
 
-#include "TypeList.h"
-#include "Unique.h"
-#include "Contains.h"
+#include "TypeList.hpp"
+#include "Unique.hpp"
+#include "Contains.hpp"
 
 namespace JML {
 
@@ -26,4 +26,4 @@ namespace JML {
 }
 
 
-#endif //JML_SUBSET_H
+#endif //JML_SUBSET_HPP

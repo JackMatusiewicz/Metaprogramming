@@ -1,10 +1,10 @@
-#ifndef JML_COUNT_H
-#define JML_COUNT_H
+#ifndef JML_COUNT_HPP
+#define JML_COUNT_HPP
 
 #include <type_traits>
 
-#include "TypeList.h"
-#include "TypeMatch.h"
+#include "TypeList.hpp"
+#include "TypeMatch.hpp"
 
 namespace JML {
 
@@ -20,4 +20,4 @@ namespace JML {
 
 }
 
-#endif //JML_COUNT_H
+#endif //JML_COUNT_HPP

@@ -1,7 +1,7 @@
-#ifndef JML_TOTYPE_H
-#define JML_TOTYPE_H
+#ifndef JML_TOTYPE_HPP
+#define JML_TOTYPE_HPP
 
-#include "TypeList.h"
+#include "TypeList.hpp"
 
 namespace JML {
 
@@ -25,4 +25,4 @@ namespace JML {
         "Converting a TypeList<tuple<int, float>> into the raw type should get tuple<int, float>");
 }
 
-#endif //JML_TOTYPE_H
+#endif //JML_TOTYPE_HPP

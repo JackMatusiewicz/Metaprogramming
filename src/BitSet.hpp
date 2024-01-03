@@ -1,9 +1,9 @@
-#ifndef JML_BITSET_H
-#define JML_BITSET_H
+#ifndef JML_BITSET_HPP
+#define JML_BITSET_HPP
 
 #include <bitset>
 
-#include "Unique.h"
+#include "Unique.hpp"
 
 namespace JML {
     template<typename... Args>
@@ -15,4 +15,4 @@ namespace JML {
     static_assert(BitSet<int, float, char, std::string>::set.size() == 4, "Length of the bitset should be 4");
 }
 
-#endif //JML_BITSET_H
+#endif //JML_BITSET_HPP

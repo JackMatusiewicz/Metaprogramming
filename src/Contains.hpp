@@ -1,10 +1,10 @@
-#ifndef JML_CONTAINS_H
-#define JML_CONTAINS_H
+#ifndef JML_CONTAINS_HPP
+#define JML_CONTAINS_HPP
 
 #include <type_traits>
 
-#include "TypeList.h"
-#include "Count.h"
+#include "TypeList.hpp"
+#include "Count.hpp"
 
 namespace JML {
     template <typename EmptyLeft, typename SetToCheck>
@@ -29,4 +29,4 @@ namespace JML {
         "All elements of the first list are contained in the second");
 }
 
-#endif //JML_CONTAINS_H
+#endif //JML_CONTAINS_HPP

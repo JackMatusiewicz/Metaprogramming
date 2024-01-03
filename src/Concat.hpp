@@ -1,7 +1,7 @@
-#ifndef JML_CONCAT_H
-#define JML_CONCAT_H
+#ifndef JML_CONCAT_HPP
+#define JML_CONCAT_HPP
 
-#include "TypeList.h"
+#include "TypeList.hpp"
 
 namespace JML {
 
@@ -27,4 +27,4 @@ namespace JML {
 
 }
 
-#endif //JML_CONCAT_H
+#endif //JML_CONCAT_HPP

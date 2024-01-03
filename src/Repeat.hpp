@@ -1,8 +1,8 @@
-#ifndef JML_REPEAT_H
-#define JML_REPEAT_H
+#ifndef JML_REPEAT_HPP
+#define JML_REPEAT_HPP
 
-#include "TypeList.h"
-#include "Concat.h"
+#include "TypeList.hpp"
+#include "Concat.hpp"
 
 namespace JML {
     template<unsigned int, typename, typename...>
@@ -24,4 +24,4 @@ namespace JML {
     static_assert(std::is_same_v<Repeat<4, int>, TypeList<int, int, int, int>>);
 }
 
-#endif //JML_REPEAT_H
+#endif //JML_REPEAT_HPP

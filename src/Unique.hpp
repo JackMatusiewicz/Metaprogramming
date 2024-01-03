@@ -1,10 +1,10 @@
-#ifndef JML_UNIQUE_H
-#define JML_UNIQUE_H
+#ifndef JML_UNIQUE_HPP
+#define JML_UNIQUE_HPP
 
 #include <type_traits>
 
-#include "TypeList.h"
-#include "Count.h"
+#include "TypeList.hpp"
+#include "Count.hpp"
 
 namespace JML {
 
@@ -27,4 +27,4 @@ namespace JML {
     static_assert(Unique<int, float, bool>::value == true);
 }
 
-#endif //JML_UNIQUE_H
+#endif //JML_UNIQUE_HPP

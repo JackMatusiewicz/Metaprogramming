@@ -1,5 +1,5 @@
-#ifndef JML_TYPELIST_H
-#define JML_TYPELIST_H
+#ifndef JML_TYPELIST_HPP
+#define JML_TYPELIST_HPP
 
 #include <cstdlib>
 
@@ -19,4 +19,4 @@ namespace JML {
 
 }
 
-#endif //JML_TYPELIST_H
+#endif //JML_TYPELIST_HPP

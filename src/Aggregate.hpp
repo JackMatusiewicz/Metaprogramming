@@ -1,7 +1,7 @@
-#ifndef JML_AGGREGATE_H
-#define JML_AGGREGATE_H
+#ifndef JML_AGGREGATE_HPP
+#define JML_AGGREGATE_HPP
 
-#include "TypeList.h"
+#include "TypeList.hpp"
 
 namespace JML {
 
@@ -26,4 +26,4 @@ namespace JML {
         "these are the same");
 }
 
-#endif //JML_AGGREGATE_H
+#endif //JML_AGGREGATE_HPP
