@@ -5,6 +5,8 @@
 #include "Unique.hpp"
 #include "Contains.hpp"
 
+#include "Concat.hpp"
+
 namespace JML {
 
     template<typename, typename>
@@ -15,6 +17,16 @@ namespace JML {
     struct Subset<TypeList<Ts...>, TypeList<Us...>>
         : std::integral_constant<bool, ContainsAll<TypeList<Ts...>, TypeList<Us...>>::value> {
     };
+
+    template<typename, typename>
+    constexpr bool is_subset_v = false;
+
+    template<typename... Ts, typename... Us>
+    constexpr bool is_subset_v<TypeList<Ts...>, TypeList<Us...>> = Subset<TypeList<Ts...>, TypeList<Us...>>::value;
+
+    // For some reason I cannot get this to work properly, investigate this further when I find some time.
+    template<typename...As, typename... Bs>
+    concept is_subset = is_subset_v<TypeList<As...>, TypeList<Bs...>>;
 
     static_assert(
         Subset<TypeList<int, float>, TypeList<int, float, char>>::value == true,

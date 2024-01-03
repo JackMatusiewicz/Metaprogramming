@@ -27,6 +27,10 @@ namespace JML {
     static_assert(
         ContainsAll<JML::TypeList<int, float, char>, JML::TypeList<int, float, char, bool>>::value == true,
         "All elements of the first list are contained in the second");
+
+    static_assert(
+        ContainsAll<JML::TypeList<>, JML::TypeList<int, float, char, bool>>::value == true,
+        "Empty list should always be considered a match");
 }
 
 #endif //JML_CONTAINS_HPP

@@ -15,7 +15,7 @@ add_library(JML INTERFACE
         src/Repeat.hpp
         src/TypeMatch.hpp
         src/Unique.hpp
-        src/BitSet.hpp
+        src/Bitset.hpp
         src/Contains.hpp
         src/Subset.hpp)
 
