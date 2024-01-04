@@ -11,6 +11,15 @@
 // that of an unsigned long long. After c++23 there are a constexpr functions we can use to allow for larger bitsets.
 namespace JML {
 
+    template<unsigned long long N>
+    static constexpr unsigned long long get_set_bits(const std::bitset<N>& bs) {
+        auto count = 0;
+        for (auto i = 0; i < N; ++i) {
+            count += bs[i];
+        }
+        return count;
+    }
+
     template<typename, typename>
     struct BitSetHelper {
         static constexpr unsigned long long encoded_set = 0;
@@ -37,18 +46,21 @@ namespace JML {
     requires is_subset_v<TypeList<Ts...>, TypeList<Us...>>
     struct Bitset<TypeList<Ts...>, TypeList<Us...>> {
         static constexpr std::bitset<TypeList<Us...>::Count> Set{BitSetHelper<TypeList<Ts...>, TypeList<Us...>>::encoded_set};
+        static constexpr unsigned long long Count{get_set_bits(Set)};
     };
 
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set.size() == 3);
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set[0] == 0);
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set[1] == 1);
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set[0] == 0);
+    static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Count == 1);
 
-    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set.size() == 4);
-    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[0] == 0);
-    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[1] == 0);
-    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[2] == 0);
-    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[3] == 1);
+    static_assert(Bitset<TypeList<int, float>, TypeList<int, char, float, bool>>::Set.size() == 4);
+    static_assert(Bitset<TypeList<int, float>, TypeList<int, char, float, bool>>::Set[0] == 0);
+    static_assert(Bitset<TypeList<int, float>, TypeList<int, char, float, bool>>::Set[1] == 1);
+    static_assert(Bitset<TypeList<int, float>, TypeList<int, char, float, bool>>::Set[2] == 0);
+    static_assert(Bitset<TypeList<int, float>, TypeList<int, char, float, bool>>::Set[3] == 1);
+    static_assert(Bitset<TypeList<int, float>, TypeList<int, char, float, bool>>::Count == 2);
 }
 
 #endif //JML_BITSET_HPP
