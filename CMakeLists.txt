@@ -19,5 +19,5 @@ add_library(JML INTERFACE
         src/Contains.hpp
         src/Subset.hpp)
 
-add_executable(executable src/main.cpp src/Index.hpp)
+add_executable(executable src/main.cpp src/Index.hpp src/BitsetFilter.h)
 target_link_libraries(executable JML)

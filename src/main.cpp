@@ -14,13 +14,22 @@
 #include "TypeList.hpp"
 #include "TypeMatch.hpp"
 #include "Unique.hpp"
+#include "BitsetFilter.h"
+
+using AllComponents = JML::TypeList<int, char, bool, float, std::string, std::vector<float>>;
+
+using PositionServiceFilter =
+    JML::Bitset<JML::TypeList<int, float, char>, AllComponents>;
+using AgentComponents =
+    JML::Bitset<JML::TypeList<int, float, char, bool>, AllComponents>;
+using TreeComponents =
+    JML::Bitset<JML::TypeList<std::string, std::vector<float>>, AllComponents>;
+
 
 int main() {
-    std::bitset<3> a("100");
-    std::bitset<3> b("011");
-    std::cout<< (a | b) << std::endl;
-    std::cout << (a.set((1 << 1))) << std::endl;
-    auto size = JML::Bitset<JML::TypeList<int>, JML::TypeList<int, char, float, bool>>::Set;
-    std::cout << "For building the application in clion, size: " << size << std::endl;
+    auto agentMatches = JML::BitsetFilter<AgentComponents, PositionServiceFilter, void>::FilterMatches;
+    auto treeMatches = JML::BitsetFilter<TreeComponents, PositionServiceFilter, void>::FilterMatches;
+    std::cout << "For building the application in clion, size: " << agentMatches << std::endl;
+    std::cout << "For building the application in clion, size: " << treeMatches << std::endl;
     return 0;
 }
