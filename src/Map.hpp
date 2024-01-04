@@ -1,6 +1,8 @@
 #ifndef JML_MAP_HPP
 #define JML_MAP_HPP
 
+#include <vector>
+
 #include "TypeList.hpp"
 
 namespace JML {

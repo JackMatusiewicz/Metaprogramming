@@ -1,6 +1,19 @@
 #include <iostream>
+#include "Aggregate.hpp"
 #include "Bitset.hpp"
 #include "Subset.hpp"
+#include "Concat.hpp"
+#include "Contains.hpp"
+#include "Count.hpp"
+#include "Exists.hpp"
+#include "HList.hpp"
+#include "Index.hpp"
+#include "Map.hpp"
+#include "Repeat.hpp"
+#include "ToType.hpp"
+#include "TypeList.hpp"
+#include "TypeMatch.hpp"
+#include "Unique.hpp"
 
 int main() {
     std::bitset<3> a("100");
