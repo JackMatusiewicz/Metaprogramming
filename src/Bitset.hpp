@@ -25,7 +25,9 @@ namespace JML {
     template<typename T, typename...Ts, typename...Us>
     struct BitSetHelper<TypeList<T, Ts...>, TypeList<Us...>> {
         static constexpr unsigned long long encoded_set =
-            (Index<T, TypeList<Us...>>::found ? (1 << Index<T, TypeList<Us...>>::value) : 0) | BitSetHelper<TypeList<Ts...>, TypeList<Us...>>::encoded_set;
+            (Index<T, TypeList<Us...>>::found
+                ? (1 << (TypeList<Us...>::Count - 1 - Index<T, TypeList<Us...>>::value)) : 0)
+            | BitSetHelper<TypeList<Ts...>, TypeList<Us...>>::encoded_set;
     };
 
     template<typename, typename>
@@ -41,6 +43,12 @@ namespace JML {
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set[0] == 0);
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set[1] == 1);
     static_assert(Bitset<TypeList<int>, TypeList<char, int, bool>>::Set[0] == 0);
+
+    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set.size() == 4);
+    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[0] == 0);
+    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[1] == 0);
+    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[2] == 0);
+    static_assert(Bitset<TypeList<int>, TypeList<int, char, float, bool>>::Set[3] == 1);
 }
 
 #endif //JML_BITSET_HPP
