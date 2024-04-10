@@ -11,8 +11,8 @@
 // that of an unsigned long long. After c++23 there are a constexpr functions we can use to allow for larger bitsets.
 namespace JML {
 
-    template<unsigned long long N>
-    static constexpr unsigned long long get_set_bits(const std::bitset<N>& bs) {
+    template<size_t N>
+    static constexpr size_t get_set_bits(const std::bitset<N>& bs) {
         auto count = 0;
         for (auto i = 0; i < N; ++i) {
             count += bs[i];

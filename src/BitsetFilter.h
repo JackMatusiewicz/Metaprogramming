@@ -8,7 +8,7 @@
 
 namespace JML {
 
-    template<unsigned long long N>
+    template<size_t N>
     static constexpr bool filter_matches(const std::bitset<N>& bs_to_check, const std::bitset<N>& base) {
         for(auto i = 0; i < N; ++i) {
             if (base[i] && !bs_to_check[i]) {
